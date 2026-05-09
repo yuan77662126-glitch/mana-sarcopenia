@@ -499,6 +499,28 @@ footer strong { color: white; }
 .fw700 { font-weight: 700; }
 .main-content { padding: 40px 0; }
 
+/* ===== 中文换行：避免单字成行，整词整体换行 ===== */
+body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-break: strict;
+}
+
+/* ===== 食物表小点分隔 + 食物名整体不断行 ===== */
+.region-table .fitem {
+  display: inline;
+  white-space: nowrap;
+}
+.region-table .fitem:not(:last-child)::after {
+  content: " · ";
+  color: var(--gray);
+  white-space: normal;
+  font-weight: 400;
+}
+.region-table td {
+  line-height: 1.8;
+}
+
 /* ===== MOBILE RESPONSIVE (≤480px 普通手机) ===== */
 @media (max-width: 480px) {
   body { font-size: 14px; }
@@ -824,33 +846,33 @@ footer strong { color: white; }
         <tbody>
           <tr>
             <td class="meal-label">🌅<br>早餐</td>
-            <td>全麦馒头<br>茶叶蛋<br>牛奶</td>
-            <td>菜肉包<br>红枣豆浆<br>煮鸡蛋</td>
-            <td>葱花鸡蛋饼<br>拌三丁<br>红枣小米粥</td>
-            <td>香菇荠菜包<br>香干马兰头<br>牛奶</td>
-            <td>韭菜鸡蛋水煎包<br>山药小米粥<br>牛奶</td>
-            <td>豌杂面<br>拌折耳根<br>豆浆</td>
-            <td>皮蛋瘦肉粥<br>白灼生菜<br>牛奶</td>
+            <td><span class="fitem">全麦馒头</span><span class="fitem">茶叶蛋</span><span class="fitem">牛奶</span></td>
+            <td><span class="fitem">菜肉包</span><span class="fitem">红枣豆浆</span><span class="fitem">煮鸡蛋</span></td>
+            <td><span class="fitem">葱花鸡蛋饼</span><span class="fitem">拌三丁</span><span class="fitem">红枣小米粥</span></td>
+            <td><span class="fitem">香菇荠菜包</span><span class="fitem">香干马兰头</span><span class="fitem">牛奶</span></td>
+            <td><span class="fitem">韭菜鸡蛋水煎包</span><span class="fitem">山药小米粥</span><span class="fitem">牛奶</span></td>
+            <td><span class="fitem">豌杂面</span><span class="fitem">拌折耳根</span><span class="fitem">豆浆</span></td>
+            <td><span class="fitem">皮蛋瘦肉粥</span><span class="fitem">白灼生菜</span><span class="fitem">牛奶</span></td>
           </tr>
           <tr>
             <td class="meal-label">🍎<br>上午</td>
-            <td>草莓+酸奶<br>核桃5g</td>
+            <td><span class="fitem">草莓+酸奶</span><span class="fitem">核桃5g</span></td>
             <td>樱桃+酸奶</td>
             <td>樱桃+酸奶</td>
-            <td>苹果<br>煮鸡蛋</td>
-            <td>牛奶<br>葵花籽</td>
-            <td>酸奶<br>巴旦木</td>
+            <td><span class="fitem">苹果</span><span class="fitem">煮鸡蛋</span></td>
+            <td><span class="fitem">牛奶</span><span class="fitem">葵花籽</span></td>
+            <td><span class="fitem">酸奶</span><span class="fitem">巴旦木</span></td>
             <td>樱桃</td>
           </tr>
           <tr>
             <td class="meal-label">🌞<br>午餐</td>
-            <td>黑豆饭<br>木耳炒肉片<br>蒜蓉菜心<br>紫菜蛋花汤</td>
-            <td>炸酱面<br>莴笋炒牛肉<br>海带豆腐汤</td>
-            <td>糙米饭<br>红烧带鱼<br>杏鲍菇炒油菜</td>
-            <td>赤小豆饭<br>油面筋塞肉<br>酒香草头</td>
-            <td>黑米饭<br>小炒牛肉<br>蒜蓉油麦菜<br>番茄汤</td>
-            <td>土豆焖饭<br>魔芋烧鸭<br>蒜香马齿苋</td>
-            <td>干炒牛河<br>蚝油芥兰</td>
+            <td><span class="fitem">黑豆饭</span><span class="fitem">木耳炒肉片</span><span class="fitem">蒜蓉菜心</span><span class="fitem">紫菜蛋花汤</span></td>
+            <td><span class="fitem">炸酱面</span><span class="fitem">莴笋炒牛肉</span><span class="fitem">海带豆腐汤</span></td>
+            <td><span class="fitem">糙米饭</span><span class="fitem">红烧带鱼</span><span class="fitem">杏鲍菇炒油菜</span></td>
+            <td><span class="fitem">赤小豆饭</span><span class="fitem">油面筋塞肉</span><span class="fitem">酒香草头</span></td>
+            <td><span class="fitem">黑米饭</span><span class="fitem">小炒牛肉</span><span class="fitem">蒜蓉油麦菜</span><span class="fitem">番茄汤</span></td>
+            <td><span class="fitem">土豆焖饭</span><span class="fitem">魔芋烧鸭</span><span class="fitem">蒜香马齿苋</span></td>
+            <td><span class="fitem">干炒牛河</span><span class="fitem">蚝油芥兰</span></td>
           </tr>
           <tr>
             <td class="meal-label">🍊<br>下午</td>
@@ -864,13 +886,13 @@ footer strong { color: white; }
           </tr>
           <tr>
             <td class="meal-label">🌙<br>晚餐</td>
-            <td>红薯饭<br>红烧鸡块<br>洋葱土豆片</td>
-            <td>紫米饭<br>大盘鸡<br>紫菜虾皮蛋汤</td>
-            <td>花卷<br>芦笋牛柳<br>素炒空心菜</td>
-            <td>黑米饭<br>清炒虾仁<br>香菇炒芦笋</td>
-            <td>绿豆饭<br>红烧武昌鱼<br>西蓝花炒木耳</td>
-            <td>二米饭<br>辣子鸡<br>茴香炒蚕豆</td>
-            <td>红薯饭<br>清蒸海鲈鱼<br>蒜蓉苋菜</td>
+            <td><span class="fitem">红薯饭</span><span class="fitem">红烧鸡块</span><span class="fitem">洋葱土豆片</span></td>
+            <td><span class="fitem">紫米饭</span><span class="fitem">大盘鸡</span><span class="fitem">紫菜虾皮蛋汤</span></td>
+            <td><span class="fitem">花卷</span><span class="fitem">芦笋牛柳</span><span class="fitem">素炒空心菜</span></td>
+            <td><span class="fitem">黑米饭</span><span class="fitem">清炒虾仁</span><span class="fitem">香菇炒芦笋</span></td>
+            <td><span class="fitem">绿豆饭</span><span class="fitem">红烧武昌鱼</span><span class="fitem">西蓝花炒木耳</span></td>
+            <td><span class="fitem">二米饭</span><span class="fitem">辣子鸡</span><span class="fitem">茴香炒蚕豆</span></td>
+            <td><span class="fitem">红薯饭</span><span class="fitem">清蒸海鲈鱼</span><span class="fitem">蒜蓉苋菜</span></td>
           </tr>
           <tr class="protein-row">
             <td class="meal-label" style="font-size:12px;">📊<br>蛋白质</td>
