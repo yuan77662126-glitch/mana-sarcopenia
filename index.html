@@ -506,19 +506,23 @@ body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
   line-break: strict;
 }
 
-/* ===== 食物表小点分隔 + 食物名整体不断行 ===== */
+/* ===== 食物表 leading-bullet 列表样式 ===== */
 .region-table .fitem {
-  display: inline;
-  white-space: nowrap;
+  display: block;
+  position: relative;
+  padding-left: 12px;
+  line-height: 1.7;
 }
-.region-table .fitem:not(:last-child)::after {
-  content: " · ";
+.region-table .fitem::before {
+  content: "·";
+  position: absolute;
+  left: 2px;
+  top: 0;
   color: var(--gray);
-  white-space: normal;
-  font-weight: 400;
+  font-weight: 700;
 }
 .region-table td {
-  line-height: 1.8;
+  vertical-align: top;
 }
 
 /* ===== MOBILE RESPONSIVE (≤480px 普通手机) ===== */
