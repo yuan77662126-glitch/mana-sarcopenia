@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>肌少症科普手册</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #2E7D50;
+  --green-light: #E8F5EE;
+  --green-mid: #4CAF73;
+  --orange: #E67E22;
+  --orange-light: #FEF3E7;
+  --red: #E74C3C;
+  --blue: #2980B9;
+  --gray-dark: #2C3E50;
+  --gray: #7F8C8D;
+  --gray-light: #F4F6F7;
+  --white: #FFFFFF;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-hover: 0 6px 20px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+
+  /* Region colors */
+  --dongbei: #1565C0;
+  --xibei:   #C67B2A;
+  --huabei:  #6A1B9A;
+  --huadong: #00695C;
+  --huazhong:#B71C1C;
+  --xinan:   #2E7D32;
+  --huanan:  #00838F;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #F0F4F1;
+  color: var(--gray-dark);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ===== LAYOUT ===== */
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+section { margin-bottom: 40px; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #1B4332 0%, #2E7D50 50%, #40916C 100%);
+  color: white;
+  padding: 64px 20px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero h1 span { color: #95D5B2; }
+.hero-sub {
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto 28px;
+  position: relative;
+}
+.hero-pills {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  position: relative;
+}
+.hero-pill {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ===== SECTION HEADERS ===== */
+.sec-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--green-light);
+}
+.sec-num {
+  width: 36px; height: 36px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 16px;
+  flex-shrink: 0;
+}
+.sec-header h2 { font-size: 22px; font-weight: 700; color: var(--green); }
+.sec-icon { font-size: 28px; }
+
+/* ===== CARDS ===== */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+/* ===== HIGHLIGHT BOX ===== */
+.highlight {
+  background: var(--green-light);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.highlight.orange { background: var(--orange-light); border-color: var(--orange); }
+.highlight p { font-size: 14px; color: var(--gray-dark); }
+.highlight strong { color: var(--green); }
+.highlight.orange strong { color: var(--orange); }
+
+/* ===== INFO GRID (Why section) ===== */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width: 600px){ .why-grid { grid-template-columns: 1fr; } }
+.why-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.why-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--green); }
+.why-card .icon-big { font-size: 36px; margin-bottom: 12px; display: block; }
+
+/* ===== RISK FACTORS ===== */
+.risk-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.risk-pill {
+  background: #FFF3E0;
+  border: 1px solid #FFCC80;
+  color: #E65100;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ===== SELF TEST ===== */
+.test-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.test-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border-top: 4px solid var(--green);
+}
+.test-card .test-num {
+  width: 32px; height: 32px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+}
+.test-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.test-card .method { font-size: 12px; color: var(--gray); margin-bottom: 8px; }
+.test-card .threshold {
+  background: #FFEBEE;
+  color: var(--red);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===== PROTEIN TABLE ===== */
+.food-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.food-table th {
+  background: var(--green);
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+}
+.food-table td { padding: 9px 14px; border-bottom: 1px solid #ECF0F1; }
+.food-table tr:nth-child(even) td { background: var(--gray-light); }
+.food-table tr:last-child td { border-bottom: none; }
+.protein-badge {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===== PROTEIN TARGET ===== */
+.protein-targets { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 16px; }
+.pt-card {
+  background: var(--green-light);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  text-align: center;
+}
+.pt-card .amount {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--green);
+  display: block;
+}
+.pt-card .label { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+/* ===== MEAL REGIONS TABLE ===== */
+.region-intro {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+}
+@media(max-width:700px){ .region-intro { grid-template-columns: repeat(4, 1fr); } }
+.ri-chip {
+  border-radius: 8px;
+  padding: 8px 4px;
+  text-align: center;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+}
+.ri-chip span { display: block; font-size: 18px; margin-bottom: 2px; }
+
+.region-table-wrap { overflow-x: auto; }
+.region-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
+.region-table th.meal {
+  background: var(--gray-light);
+  color: var(--gray-dark);
+  padding: 10px 8px;
+  font-weight: 600;
+  text-align: center;
+  width: 80px;
+  position: sticky; left: 0;
+  z-index: 2;
+}
+.region-table th.rname {
+  padding: 10px 8px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+}
+.region-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid #ECF0F1;
+  vertical-align: top;
+  line-height: 1.4;
+}
+.region-table td.meal-label {
+  background: var(--gray-light);
+  font-weight: 600;
+  text-align: center;
+  font-size: 16px;
+  position: sticky; left: 0;
+  z-index: 1;
+}
+.region-table tr:last-child td { border-bottom: none; }
+.protein-row td { background: #F9FBF9; font-weight: 600; font-size: 12px; }
+.protein-row .meal-label { background: var(--gray-light); }
+.prot-badge {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+}
+
+/* ===== EXERCISE ===== */
+.exercise-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.ex-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.ex-header {
+  padding: 14px 18px;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+.ex-header.resistance { background: var(--green); }
+.ex-header.cardio { background: var(--blue); }
+.ex-header.multi { background: var(--orange); }
+.ex-body { padding: 16px 18px; }
+.ex-body ul { padding-left: 16px; font-size: 13px; }
+.ex-body li { margin-bottom: 6px; }
+.ex-stat { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.stat-pill {
+  background: var(--gray-light);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ===== HOME EXERCISES ===== */
+.ex-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ex-table th { background: var(--green); color: white; padding: 10px 14px; text-align: left; }
+.ex-table td { padding: 9px 14px; border-bottom: 1px solid #ECF0F1; }
+.ex-table tr:nth-child(even) td { background: var(--gray-light); }
+
+/* ===== HABITS ===== */
+.habit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:600px){ .habit-grid { grid-template-columns: 1fr; } }
+.habit-card { background: white; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+.habit-card h4 { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+.habit-card.good h4 { color: var(--green); }
+.habit-card.bad h4 { color: var(--red); }
+.habit-list { list-style: none; }
+.habit-list li { padding: 6px 0; font-size: 13px; border-bottom: 1px solid #F4F6F7; }
+.habit-list li:last-child { border-bottom: none; }
+.habit-list li::before { margin-right: 8px; }
+.habit-card.good .habit-list li::before { content: '✓'; color: var(--green); font-weight: 700; }
+.habit-card.bad .habit-list li::before { content: '✗'; color: var(--red); font-weight: 700; }
+
+/* ===== SUPPLEMENTS ===== */
+.supp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.supp-table th { background: var(--green); color: white; padding: 10px 14px; text-align: left; }
+.supp-table td { padding: 10px 14px; border-bottom: 1px solid #ECF0F1; vertical-align: top; }
+.supp-table tr:nth-child(even) td { background: var(--gray-light); }
+.supp-name { font-weight: 700; font-size: 14px; }
+.supp-sub { font-size: 11px; color: var(--gray); }
+
+/* ===== SPECIAL POPULATIONS ===== */
+.pop-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.pop-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.pop-header { padding: 16px 18px; color: white; font-weight: 700; font-size: 15px; }
+.pop-header.elderly { background: #1565C0; }
+.pop-header.veg { background: #2E7D32; }
+.pop-header.young { background: #AD1457; }
+.pop-body { padding: 16px 18px; font-size: 13px; }
+.pop-body ul { padding-left: 16px; }
+.pop-body li { margin-bottom: 6px; }
+
+/* ===== REGIONAL APPENDIX ===== */
+.region-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
+@media(max-width:500px){ .region-cards { grid-template-columns: 1fr; } }
+.rcard {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.rcard-header {
+  padding: 16px 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rcard-header .rname { font-size: 18px; font-weight: 700; }
+.rcard-header .rdesc { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+.rcard-body { padding: 16px 20px; }
+.meal-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.meal-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.meal-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.meal-icon.breakfast { background: #FFF3E0; }
+.meal-icon.snack { background: #F3E5F5; }
+.meal-icon.lunch { background: #E8F5E9; }
+.meal-icon.dinner { background: #E3F2FD; }
+.meal-content { flex: 1; }
+.meal-label-small { font-size: 11px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+.meal-dishes { font-size: 13px; color: var(--gray-dark); line-height: 1.4; }
+.rcard-footer {
+  padding: 10px 20px 14px;
+  background: #F9FAFB;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px solid #ECF0F1;
+  font-size: 12px;
+}
+.rcard-stat { display: flex; align-items: center; gap: 4px; }
+.rcard-stat strong { color: var(--green); }
+.seasonal-tip {
+  padding: 10px 20px;
+  background: #FFFDE7;
+  border-top: 1px solid #FFF176;
+  font-size: 12px;
+  color: #827717;
+}
+
+/* ===== FAQ ===== */
+.faq-list { display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: white; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+.faq-q { font-weight: 700; color: var(--green); margin-bottom: 8px; font-size: 15px; }
+.faq-q::before { content: 'Q  '; font-size: 12px; background: var(--green); color: white; padding: 1px 6px; border-radius: 4px; margin-right: 8px; }
+.faq-a { font-size: 14px; color: var(--gray-dark); }
+
+/* ===== SUMMARY TABLE ===== */
+.summary-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.summary-table th { background: var(--green); color: white; padding: 10px 14px; text-align: left; }
+.summary-table td { padding: 10px 14px; border-bottom: 1px solid #ECF0F1; vertical-align: top; }
+.summary-table tr:nth-child(even) td { background: var(--gray-light); }
+.summary-table td:first-child { font-weight: 700; color: var(--green); white-space: nowrap; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--gray-dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 40px;
+}
+footer strong { color: white; }
+
+/* ===== PRINT ===== */
+@media print {
+  body { background: white; font-size: 12px; }
+  .hero { background: #2E7D50 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card, .rcard, .test-card, .ex-card, .pop-card, .faq-item { box-shadow: none; border: 1px solid #ddd; }
+  section { page-break-inside: avoid; }
+  .region-cards { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===== UTILITIES ===== */
+.mb16 { margin-bottom: 16px; }
+.mb8 { margin-bottom: 8px; }
+.text-small { font-size: 13px; color: var(--gray); }
+.text-green { color: var(--green); }
+.fw700 { font-weight: 700; }
+.main-content { padding: 40px 0; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">大众科普 · 预防指南</div>
+    <h1>肌少症<br><span>你的肌肉，正在悄悄流失</span></h1>
+    <p class="hero-sub">从认知到预防，从营养到运动，一份适合全家人的实操手册</p>
+    <div class="hero-pills">
+      <span class="hero-pill">📖 什么是肌少症</span>
+      <span class="hero-pill">🔍 如何自测风险</span>
+      <span class="hero-pill">🍽️ 分地区食谱</span>
+      <span class="hero-pill">🏃 运动方案</span>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+<div class="container">
+
+<!-- ===== 01 什么是肌少症 ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">01</div>
+    <span class="sec-icon">💪</span>
+    <h2>什么是肌少症？</h2>
+  </div>
+
+  <div class="card">
+    <p style="font-size:16px;line-height:1.8;margin-bottom:16px;">
+      <strong>肌少症</strong>（Sarcopenia），医学上也叫"肌肉衰减综合征"，是一种随着年龄增长，<strong>骨骼肌肉量持续减少、肌肉力量下降、身体功能变差</strong>的疾病。
+    </p>
+    <div class="highlight">
+      <p>🏦 <strong>把肌肉想象成身体里的"存款"：</strong>年轻时不断"存入"，30岁前达到顶峰；之后如不主动维护，每年自然"缩水"1%～2%；60岁后"取款速度"明显加快。等到"余额不足"，各种问题接踵而来。</p>
+    </div>
+    <p style="margin-top:16px;font-size:14px;color:#555;">肌少症不只是"变瘦"，它意味着：力气变小、走路变慢、容易跌倒、抵抗力下降、血糖调控变差、骨质流失加速……</p>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#E8F5EE,#F0FFF6);">
+    <div style="text-align:center;margin-bottom:8px;">
+      <span style="font-size:13px;color:var(--gray);font-weight:600;letter-spacing:1px;">中国患病率</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;">
+      <div>
+        <div style="font-size:28px;font-weight:900;color:var(--green);">5.7～23.9%</div>
+        <div style="font-size:12px;color:var(--gray);margin-top:4px;">60岁以上老年人</div>
+      </div>
+      <div>
+        <div style="font-size:28px;font-weight:900;color:var(--orange);">65.9%</div>
+        <div style="font-size:12px;color:var(--gray);margin-top:4px;">养老机构有肌少症风险</div>
+      </div>
+      <div>
+        <div style="font-size:28px;font-weight:900;color:var(--blue);">30岁</div>
+        <div style="font-size:12px;color:var(--gray);margin-top:4px;">肌肉开始自然流失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 为什么全年龄段都要重视 ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">02</div>
+    <span class="sec-icon">👨‍👩‍👧‍👦</span>
+    <h2>为什么不只是老年人的问题？</h2>
+  </div>
+
+  <div class="card mb16">
+    <h3 style="margin-bottom:12px;font-size:16px;">⚠️ 这些现代生活习惯，正在加速肌肉流失</h3>
+    <div class="risk-pills">
+      <span class="risk-pill">🪑 久坐不动</span>
+      <span class="risk-pill">🥡 蛋白质摄入不足</span>
+      <span class="risk-pill">🌙 睡眠质量差</span>
+      <span class="risk-pill">🚬 长期吸烟</span>
+      <span class="risk-pill">🍺 过量饮酒</span>
+      <span class="risk-pill">📱 减肥节食</span>
+      <span class="risk-pill">😰 长期精神压力</span>
+    </div>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="icon-big">🏠</span>
+      <h3>家庭层面</h3>
+      <ul style="font-size:14px;padding-left:16px;">
+        <li style="margin-bottom:8px;">跌倒骨折：髋部骨折手术费数万，卧床又加速肌肉流失，恶性循环</li>
+        <li style="margin-bottom:8px;">长期照护：子女照护压力显著增加</li>
+        <li style="margin-bottom:8px;">医疗负担：住院率高、住院周期长</li>
+        <li>代际影响：家庭饮食和运动习惯会"传染"给孩子</li>
+      </ul>
+    </div>
+    <div class="why-card">
+      <span class="icon-big">🌍</span>
+      <h3>社会层面</h3>
+      <ul style="font-size:14px;padding-left:16px;">
+        <li style="margin-bottom:8px;">中国正快速步入深度老龄化，肌少症患者数量持续攀升</li>
+        <li style="margin-bottom:8px;">消耗大量医疗和养老护理资源</li>
+        <li style="margin-bottom:8px;">增加老年人残疾率，降低生活质量</li>
+        <li>早期预防 = 最低成本的健康投资</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 自测 ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">03</div>
+    <span class="sec-icon">🔍</span>
+    <h2>如何初步判断自己是否有风险？</h2>
+  </div>
+
+  <div class="highlight orange mb16">
+    <p>⚠️ 以下测试适合在家初步筛查，<strong>任一项达到红线建议及时就医</strong>做体成分检测（DXA或生物电阻抗）确认诊断。</p>
+  </div>
+
+  <div class="test-cards">
+    <div class="test-card">
+      <div class="test-num">1</div>
+      <h4>SARC-F 问卷</h4>
+      <p class="method">回答5个关于体力、步行、起身、爬楼梯和跌倒的问题，每题0～2分</p>
+      <div class="threshold">总分 ≥ 4分 ⚠️</div>
+    </div>
+    <div class="test-card">
+      <div class="test-num">2</div>
+      <h4>小腿围</h4>
+      <p class="method">用软尺测量小腿最粗处（放松状态）</p>
+      <div class="threshold">男 &lt;34cm / 女 &lt;33cm ⚠️</div>
+    </div>
+    <div class="test-card">
+      <div class="test-num">3</div>
+      <h4>握力</h4>
+      <p class="method">握力计测量惯用手最大握力</p>
+      <div class="threshold">男 &lt;28kg / 女 &lt;18kg ⚠️</div>
+    </div>
+    <div class="test-card">
+      <div class="test-num">4</div>
+      <h4>6米步速</h4>
+      <p class="method">正常步速走6米，记录时间</p>
+      <div class="threshold">&gt;6秒（即 &lt;1m/s）⚠️</div>
+    </div>
+    <div class="test-card">
+      <div class="test-num">5</div>
+      <h4>5次起坐</h4>
+      <p class="method">从椅子站起坐下，连续5次，记录总时间</p>
+      <div class="threshold">超过 12 秒 ⚠️</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;background:#F8F9FA;">
+    <h4 style="margin-bottom:12px;font-weight:700;">📋 SARC-F 问卷详情</h4>
+    <table class="food-table">
+      <thead><tr><th>问题</th><th>0分</th><th>1分</th><th>2分</th></tr></thead>
+      <tbody>
+        <tr><td>提起约5kg重物，费力吗？</td><td>没有困难</td><td>有些困难</td><td>很困难/做不到</td></tr>
+        <tr><td>穿越一个房间步行，费力吗？</td><td>没有困难</td><td>有些困难</td><td>很困难/需借助工具</td></tr>
+        <tr><td>从椅子或床上站起，费力吗？</td><td>没有困难</td><td>有些困难</td><td>很困难/需要帮助</td></tr>
+        <tr><td>爬10级台阶，费力吗？</td><td>没有困难</td><td>有些困难</td><td>很困难/做不到</td></tr>
+        <tr><td>过去一年里，跌倒过几次？</td><td>0次</td><td>1～3次</td><td>4次及以上</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 04 预防实操 ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">04</div>
+    <span class="sec-icon">🛡️</span>
+    <h2>预防实操：从今天开始"存肌肉"</h2>
+  </div>
+
+  <!-- STEP 1: Protein -->
+  <div class="card mb16">
+    <h3 style="font-weight:700;font-size:17px;margin-bottom:12px;">🥩 第一步：吃够蛋白质，三餐均匀分配</h3>
+    <div class="highlight mb16">
+      <p>📊 <strong>数据警示：</strong>2015年全国监测显示，我国老年人日均蛋白质摄入仅约47.9g，远低于推荐标准。膳食不足的部分，需要通过优质食物补足。</p>
+    </div>
+    <div class="protein-targets">
+      <div class="pt-card">
+        <span class="amount">≥1.0 g</span>
+        <div class="label">健康成年人（预防）<br>/kg体重/天</div>
+      </div>
+      <div class="pt-card">
+        <span class="amount">1.2～1.5 g</span>
+        <div class="label">50岁以上 / 已有风险<br>/kg体重/天</div>
+      </div>
+      <div class="pt-card">
+        <span class="amount">1.5～2.0 g</span>
+        <div class="label">合并营养不良<br>/kg体重/天</div>
+      </div>
+      <div class="pt-card">
+        <span class="amount">20～25 g</span>
+        <div class="label">每餐目标蛋白质<br>最大化肌肉合成</div>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:12px;">
+      <p>💡 <strong>关键原则：三餐均匀分配！</strong>研究显示，三餐蛋白质均衡的老年人四肢肌肉量更高。不要把蛋白质全部集中在晚餐。</p>
+    </div>
+  </div>
+
+  <!-- STEP 2: Food choice -->
+  <div class="card mb16">
+    <h3 style="font-weight:700;font-size:17px;margin-bottom:12px;">🐟 第二步：选对食物，优质蛋白≥60%</h3>
+    <table class="food-table">
+      <thead><tr><th>食物</th><th>蛋白质含量/100g</th><th>推荐理由</th></tr></thead>
+      <tbody>
+        <tr><td>🐔 鸡胸肉</td><td><span class="protein-badge">约23g</span></td><td>低脂高蛋白首选</td></tr>
+        <tr><td>🐟 三文鱼/鲭鱼</td><td><span class="protein-badge">约20g</span></td><td>额外含n-3脂肪酸，抗炎护肌</td></tr>
+        <tr><td>🦐 虾</td><td><span class="protein-badge">约18g</span></td><td>易消化，适合老年人</td></tr>
+        <tr><td>🥚 鸡蛋（2个）</td><td><span class="protein-badge">约26g</span></td><td>氨基酸最均衡的天然食物</td></tr>
+        <tr><td>🥛 低脂牛奶250ml</td><td><span class="protein-badge">约8g</span></td><td>含钙，睡前补充可持续供给</td></tr>
+        <tr><td>🫘 北豆腐100g</td><td><span class="protein-badge">约12g</span></td><td>植物蛋白优选，适合不爱吃肉者</td></tr>
+        <tr><td>🌊 海带/木耳/香菇</td><td>—</td><td>含多糖，益肠道、助免疫</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:12px;font-size:13px;color:var(--gray);">
+      其他重点食物：深色蔬菜（抗氧化）、深海鱼（EPA/DHA）、坚果（维生素E）、亚麻籽油/紫苏油（植物来源n-3）
+    </div>
+  </div>
+
+  <!-- STEP 3: Regional recipes -->
+  <div class="card mb16">
+    <h3 style="font-weight:700;font-size:17px;margin-bottom:8px;">🍽️ 第三步：一日三餐参考食谱</h3>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:16px;">以下为各地区春季代表食谱（1700～1800 kcal / 每日），适合体重约60kg的中老年人。<strong>直接找你所在地区那一列</strong>参考即可。详细四季食谱见文末附录。</p>
+
+    <!-- Region color chips -->
+    <div class="region-intro">
+      <div class="ri-chip" style="background:var(--dongbei);"><span>🌲</span>东北</div>
+      <div class="ri-chip" style="background:var(--xibei);"><span>🏔️</span>西北</div>
+      <div class="ri-chip" style="background:var(--huabei);"><span>🏙️</span>华北</div>
+      <div class="ri-chip" style="background:var(--huadong);"><span>🌊</span>华东</div>
+      <div class="ri-chip" style="background:var(--huazhong);"><span>🌶️</span>华中</div>
+      <div class="ri-chip" style="background:var(--xinan);"><span>🐼</span>西南</div>
+      <div class="ri-chip" style="background:var(--huanan);"><span>🌴</span>华南</div>
+    </div>
+
+    <div class="region-table-wrap">
+      <table class="region-table">
+        <thead>
+          <tr>
+            <th class="meal" style="background:#F4F6F7;color:#555;">餐次</th>
+            <th class="rname" style="background:var(--dongbei);">🌲 东北</th>
+            <th class="rname" style="background:var(--xibei);">🏔️ 西北</th>
+            <th class="rname" style="background:var(--huabei);">🏙️ 华北</th>
+            <th class="rname" style="background:var(--huadong);">🌊 华东</th>
+            <th class="rname" style="background:var(--huazhong);">🌶️ 华中</th>
+            <th class="rname" style="background:var(--xinan);">🐼 西南</th>
+            <th class="rname" style="background:var(--huanan);">🌴 华南</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="meal-label">🌅<br>早餐</td>
+            <td>全麦馒头<br>茶叶蛋<br>牛奶</td>
+            <td>菜肉包<br>红枣豆浆<br>煮鸡蛋</td>
+            <td>葱花鸡蛋饼<br>拌三丁<br>红枣小米粥</td>
+            <td>香菇荠菜包<br>香干马兰头<br>牛奶</td>
+            <td>韭菜鸡蛋水煎包<br>山药小米粥<br>牛奶</td>
+            <td>豌杂面<br>拌折耳根<br>豆浆</td>
+            <td>皮蛋瘦肉粥<br>白灼生菜<br>牛奶</td>
+          </tr>
+          <tr>
+            <td class="meal-label">🍎<br>上午</td>
+            <td>草莓+酸奶<br>核桃5g</td>
+            <td>樱桃+酸奶</td>
+            <td>樱桃+酸奶</td>
+            <td>苹果<br>煮鸡蛋</td>
+            <td>牛奶<br>葵花籽</td>
+            <td>酸奶<br>巴旦木</td>
+            <td>樱桃</td>
+          </tr>
+          <tr>
+            <td class="meal-label">🌞<br>午餐</td>
+            <td>黑豆饭<br>木耳炒肉片<br>蒜蓉菜心<br>紫菜蛋花汤</td>
+            <td>炸酱面<br>莴笋炒牛肉<br>海带豆腐汤</td>
+            <td>糙米饭<br>红烧带鱼<br>杏鲍菇炒油菜</td>
+            <td>赤小豆饭<br>油面筋塞肉<br>酒香草头</td>
+            <td>黑米饭<br>小炒牛肉<br>蒜蓉油麦菜<br>番茄汤</td>
+            <td>土豆焖饭<br>魔芋烧鸭<br>蒜香马齿苋</td>
+            <td>干炒牛河<br>蚝油芥兰</td>
+          </tr>
+          <tr>
+            <td class="meal-label">🍊<br>下午</td>
+            <td>酸奶+核桃</td>
+            <td>草莓+酸奶</td>
+            <td>牛奶+腰果</td>
+            <td>酸奶+山核桃</td>
+            <td>苹果+酸奶</td>
+            <td>牛奶+蓝莓</td>
+            <td>酸奶+开心果</td>
+          </tr>
+          <tr>
+            <td class="meal-label">🌙<br>晚餐</td>
+            <td>红薯饭<br>红烧鸡块<br>洋葱土豆片</td>
+            <td>紫米饭<br>大盘鸡<br>紫菜虾皮蛋汤</td>
+            <td>花卷<br>芦笋牛柳<br>素炒空心菜</td>
+            <td>黑米饭<br>清炒虾仁<br>香菇炒芦笋</td>
+            <td>绿豆饭<br>红烧武昌鱼<br>西蓝花炒木耳</td>
+            <td>二米饭<br>辣子鸡<br>茴香炒蚕豆</td>
+            <td>红薯饭<br>清蒸海鲈鱼<br>蒜蓉苋菜</td>
+          </tr>
+          <tr class="protein-row">
+            <td class="meal-label" style="font-size:12px;">📊<br>蛋白质</td>
+            <td><span class="prot-badge" style="background:var(--dongbei);">~84g / 61%优质</span></td>
+            <td><span class="prot-badge" style="background:var(--xibei);">~87g / 63%优质</span></td>
+            <td><span class="prot-badge" style="background:var(--huabei);">~96g / 57%优质</span></td>
+            <td><span class="prot-badge" style="background:var(--huadong);">~99g / 60%优质</span></td>
+            <td><span class="prot-badge" style="background:var(--huazhong);">~92g / 61%优质</span></td>
+            <td><span class="prot-badge" style="background:var(--xinan);">~91g / 60%优质</span></td>
+            <td><span class="prot-badge" style="background:var(--huanan);">~92g / 61%优质</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--gray);margin-top:10px;">💡 同类食材可互换（鲈鱼↔带鱼、猪瘦肉↔鸡胸肉）。标注*的食药物质（枸杞、山药、薏苡仁等）可酌情添加，非必须。</p>
+  </div>
+
+  <!-- STEP 4: Vitamin D -->
+  <div class="card mb16">
+    <h3 style="font-weight:700;font-size:17px;margin-bottom:12px;">☀️ 第四步：重视维生素D</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+      <div style="text-align:center;padding:16px;background:var(--orange-light);border-radius:var(--radius-sm);">
+        <div style="font-size:24px;">☀️</div>
+        <div style="font-weight:700;margin:8px 0 4px;">晒太阳</div>
+        <div style="font-size:12px;color:var(--gray);">每天15～30分钟<br>晒手臂和腿部</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:#FFF3E0;border-radius:var(--radius-sm);">
+        <div style="font-size:24px;">🐟</div>
+        <div style="font-weight:700;margin:8px 0 4px;">食物补充</div>
+        <div style="font-size:12px;color:var(--gray);">三文鱼、沙丁鱼<br>蛋黄、强化牛奶</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:#FFF3E0;border-radius:var(--radius-sm);">
+        <div style="font-size:24px;">💊</div>
+        <div style="font-weight:700;margin:8px 0 4px;">必要时补充</div>
+        <div style="font-size:12px;color:var(--gray);">800～1000 IU/天<br>建议先检测</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--green-light);border-radius:var(--radius-sm);">
+        <div style="font-size:24px;">🎯</div>
+        <div style="font-weight:700;margin:8px 0 4px;">目标血清值</div>
+        <div style="font-size:12px;color:var(--gray);">25(OH)D<br>≥75 nmol/L</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Exercise -->
+  <div class="card mb16">
+    <h3 style="font-weight:700;font-size:17px;margin-bottom:16px;">🏃 第五步：科学运动，激活肌肉生长</h3>
+    <div class="exercise-cards">
+      <div class="ex-card">
+        <div class="ex-header resistance">💪 抗阻运动（最关键）</div>
+        <div class="ex-body">
+          <p style="font-size:13px;margin-bottom:10px;">通过克服外部阻力刺激肌肉蛋白合成，直接增肌、增力</p>
+          <div class="ex-stat">
+            <span class="stat-pill">📅 2～3次/周</span>
+            <span class="stat-pill">⏱ 30～60分钟</span>
+            <span class="stat-pill">💪 60～80% 1RM</span>
+            <span class="stat-pill">📆 坚持≥12周</span>
+          </div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-header cardio">🚶 有氧运动</div>
+        <div class="ex-body">
+          <p style="font-size:13px;margin-bottom:10px;">提升心肺耐力，改善功能性活动能力</p>
+          <div class="ex-stat">
+            <span class="stat-pill">📅 3～5次/周</span>
+            <span class="stat-pill">⏱ 20～60分钟</span>
+            <span class="stat-pill">❤️ 50～70% 最大心率</span>
+          </div>
+          <p style="font-size:12px;color:var(--gray);margin-top:8px;">步行、骑行、游泳、广场舞、太极均可</p>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-header multi">🔄 多组分联合（效果最佳）</div>
+        <div class="ex-body">
+          <p style="font-size:13px;margin-bottom:10px;">抗阻+有氧+平衡+柔韧，效果优于单一运动</p>
+          <div class="ex-stat">
+            <span class="stat-pill">📅 2～3次/周</span>
+            <span class="stat-pill">⏱ 45～60分钟</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 style="margin:20px 0 12px;font-weight:700;">🏠 居家抗阻训练参考动作</h4>
+    <table class="ex-table">
+      <thead><tr><th>动作</th><th>主要锻炼部位</th><th>建议</th></tr></thead>
+      <tbody>
+        <tr><td>深蹲（可扶椅背）</td><td>大腿、臀部</td><td>每组10～15次，共3组</td></tr>
+        <tr><td>靠墙静蹲</td><td>大腿前侧</td><td>每次30～60秒，共3组</td></tr>
+        <tr><td>俯卧撑（可跪姿）</td><td>胸、臂、核心</td><td>每组8～12次，共3组</td></tr>
+        <tr><td>弹力带划船</td><td>背部、手臂</td><td>每组10次，共3组</td></tr>
+        <tr><td>单腿站立</td><td>小腿、踝、平衡</td><td>每侧30秒，共3组</td></tr>
+        <tr><td>踮脚跟</td><td>小腿</td><td>每组20次，共3组</td></tr>
+      </tbody>
+    </table>
+    <div class="highlight" style="margin-top:12px;">
+      <p>🥛 <strong>运动后黄金窗口：</strong>运动结束后30～60分钟内，补充含20～25g蛋白质的食物（牛奶+鸡蛋，或乳清蛋白），效果最佳。</p>
+    </div>
+  </div>
+
+  <!-- STEP 6: Habits -->
+  <div class="card mb16">
+    <h3 style="font-weight:700;font-size:17px;margin-bottom:16px;">😴 第六步：养成有益肌肉的生活习惯</h3>
+    <div class="habit-grid">
+      <div class="habit-card good">
+        <h4>✅ 应该做的</h4>
+        <ul class="habit-list">
+          <li>每坐45～60分钟，起身活动5分钟</li>
+          <li>保证7～8小时高质量睡眠</li>
+          <li>每天晒太阳15～30分钟</li>
+          <li>适当社交、保持积极情绪</li>
+          <li>多参与户外活动</li>
+        </ul>
+      </div>
+      <div class="habit-card bad">
+        <h4>❌ 需要避免的</h4>
+        <ul class="habit-list">
+          <li>过度节食减肥（尤其不保证蛋白质）</li>
+          <li>长期吸烟（抑制肌肉蛋白合成）</li>
+          <li>过量饮酒（加速肌肉分解）</li>
+          <li>长时间卧床休息（1周即可显著降低肌肉量）</li>
+          <li>长期久坐不动</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7: Supplements -->
+  <div class="card">
+    <h3 style="font-weight:700;font-size:17px;margin-bottom:12px;">💊 第七步：补剂参考（按需，非必需）</h3>
+    <div class="highlight orange mb16">
+      <p>⚠️ <strong>补剂不能替代食物。</strong>饮食结构合理的人优先从食物获取营养。有慢性病（尤其肾病、糖尿病）者，补充蛋白质和维生素D前请咨询医生。</p>
+    </div>
+    <table class="supp-table">
+      <thead><tr><th>补剂</th><th>推荐用途</th><th>参考剂量</th><th>注意事项</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="supp-name">乳清蛋白粉</div><div class="supp-sub">首选分离乳清蛋白</div></td>
+          <td>饮食蛋白质不足时补充</td>
+          <td>每次20～30g，每天1～2次</td>
+          <td>肾功能不全者需医生指导</td>
+        </tr>
+        <tr>
+          <td><div class="supp-name">维生素D3</div></td>
+          <td>日晒不足或检测缺乏时</td>
+          <td>800～1000 IU/天</td>
+          <td>建议先检测25(OH)D水平</td>
+        </tr>
+        <tr>
+          <td><div class="supp-name">鱼油（EPA+DHA）</div></td>
+          <td>辅助抗炎、保护肌肉</td>
+          <td>≥2 g/天</td>
+          <td>服用抗凝药者需告知医生</td>
+        </tr>
+        <tr>
+          <td><div class="supp-name">亮氨酸</div><div class="supp-sub">支链氨基酸</div></td>
+          <td>激活肌肉蛋白合成</td>
+          <td>≥3 g/天</td>
+          <td>与乳清蛋白联用效果更佳</td>
+        </tr>
+        <tr>
+          <td><div class="supp-name">CaHMB</div><div class="supp-sub">β-羟基-β-甲基丁酸钙</div></td>
+          <td>久坐/卧床者防肌肉分解</td>
+          <td>≤3 g/天</td>
+          <td>亮氨酸代谢产物，证据充分</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 05 特殊人群 ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">05</div>
+    <span class="sec-icon">👥</span>
+    <h2>特殊人群：额外注意什么？</h2>
+  </div>
+  <div class="pop-cards">
+    <div class="pop-card">
+      <div class="pop-header elderly">👴 60岁以上老年人</div>
+      <div class="pop-body">
+        <ul>
+          <li>食物宜细软，可将食材切碎炖烂</li>
+          <li><strong>少量多餐</strong>：每天5～6餐（三餐两点 / 三餐三点制）</li>
+          <li>营养不足时可使用<strong>口服营养补充剂（ONS）</strong>，每日200～600 kcal</li>
+          <li>运动以安全为前提，从坐姿深蹲、扶墙站立练起</li>
+          <li>每年做一次肌少症筛查评估</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pop-card">
+      <div class="pop-header veg">🌱 素食者</div>
+      <div class="pop-body">
+        <ul>
+          <li>推荐<strong>蛋奶素食</strong>（而非全素）：每天1个蛋、1～2杯牛奶</li>
+          <li>多吃大豆制品（豆腐、豆干、纳豆）</li>
+          <li>常吃坚果、海藻、菌菇</li>
+          <li>烹调油选亚麻籽油/紫苏油（n-3来源）</li>
+          <li>重点补充：<strong>维生素B12、维生素D、铁、锌</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pop-card">
+      <div class="pop-header young" style="background:#AD1457;">🏃 爱减肥的年轻人</div>
+      <div class="pop-body">
+        <ul>
+          <li>减脂期蛋白质<strong>不能降低</strong>，甚至要适当增加</li>
+          <li>热量缺口每天不超过500 kcal</li>
+          <li>避免极端节食——掉的不是脂肪，是肌肉</li>
+          <li>减脂期坚持<strong>抗阻训练</strong>，才能真正"减脂不减肌"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 Summary ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">06</div>
+    <span class="sec-icon">📋</span>
+    <h2>行动清单：一张表总结预防要点</h2>
+  </div>
+  <div class="card">
+    <table class="summary-table">
+      <thead><tr><th>类别</th><th>核心行动</th></tr></thead>
+      <tbody>
+        <tr><td>🥩 蛋白质</td><td>每天≥1.2g/kg体重，三餐均匀分配，每餐20～25g；优质蛋白≥60%</td></tr>
+        <tr><td>🐟 食物选择</td><td>多吃鱼、蛋、奶、豆；深色蔬菜；深海鱼或亚麻籽油</td></tr>
+        <tr><td>☀️ 维生素D</td><td>每天晒太阳15～30分钟；不足时补充800～1000 IU/天</td></tr>
+        <tr><td>💪 运动</td><td>抗阻运动2～3次/周 + 有氧运动3～5次/周，联合干预效果更佳</td></tr>
+        <tr><td>😴 作息</td><td>减少久坐，保证7～8小时睡眠，戒烟限酒，保持积极心态</td></tr>
+        <tr><td>💊 补剂（按需）</td><td>乳清蛋白、维生素D3、鱼油（EPA+DHA），在专业指导下使用</td></tr>
+        <tr><td>🔍 定期自测</td><td>每年测小腿围、握力，做SARC-F问卷；老年人每年筛查一次</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 07 FAQ ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">07</div>
+    <span class="sec-icon">❓</span>
+    <h2>常见问题</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">我已经很瘦了，是不是更容易得肌少症？</div>
+      <div class="faq-a">不一定。肌少症看的是<strong>肌肉量</strong>，而非体重。体重正常甚至偏胖的人，如果脂肪多、肌肉少，同样可能有肌少症（称为"肌少症性肥胖"）。关键是评估身体成分，而非单纯看体重秤。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">年轻人需要吃蛋白粉吗？</div>
+      <div class="faq-a">如果三餐有足量蛋、奶、鱼、肉，一般不需要额外补充。蛋白粉主要是在<strong>食物摄入不足时</strong>的补充手段，不是人人都需要的"必需品"。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">我妈妈不爱吃肉，怎么帮她补蛋白质？</div>
+      <div class="faq-a">从她喜欢的食物入手：豆腐、豆浆、鸡蛋、牛奶、虾（肉质软）都是好选择。把豆腐加入菜肴、用蛋奶做羹汤，食物细软、风味丰富，有助于老年人多吃。如果食物摄入实在不足，可以在医生指导下使用全营养配方粉（ONS）。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">运动多久能看到效果？</div>
+      <div class="faq-a">坚持抗阻训练<strong>至少12周</strong>，才能看到较明显的肌肉量和力量改善。但即使是第一次运动，身体已经开始响应了——改变需要时间，重要的是坚持。营养+运动联合干预效果优于单独运动。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">CaHMB和HMB有什么区别？</div>
+      <div class="faq-a">CaHMB（β-羟基-β-甲基丁酸<strong>钙盐</strong>）是HMB最常见的商业补充形式，两者本质是同一种活性物质。HMB-FA（游离酸形式）吸收更快，但长期效果两者相近。指南推荐的CaHMB即为标准临床用形式，≤3g/天。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPENDIX: Regional Recipes ===== -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num" style="background:var(--orange);">附</div>
+    <span class="sec-icon">🗺️</span>
+    <h2>分地区四季完整食谱</h2>
+  </div>
+  <div class="highlight orange mb16">
+    <p>以下食谱来自《成人肌少症食养指南（2026年版）》，每个地区展示<strong>★代表食谱（1700～1800 kcal/天）</strong>，并附四季特色说明。食材中标注 * 的为食药物质，可酌情添加。全天用油20～25g，食盐 &lt;5g。</p>
+  </div>
+
+  <div class="region-cards">
+
+    <!-- 东北 -->
+    <div class="rcard">
+      <div class="rcard-header" style="background:var(--dongbei);">
+        <div>
+          <div class="rname">🌲 东北地区</div>
+          <div class="rdesc">米面为主 · 炖菜为魂 · 酸菜木耳 · 牛羊猪肉</div>
+        </div>
+      </div>
+      <div class="rcard-body">
+        <div style="font-size:12px;font-weight:600;color:var(--dongbei);margin-bottom:10px;">🌱 春季代表食谱（~84g蛋白质）</div>
+        <div class="meal-timeline">
+          <div class="meal-row">
+            <div class="meal-icon breakfast">🌅</div>
+            <div class="meal-content">
+              <div class="meal-label-small">早餐</div>
+              <div class="meal-dishes">全麦馒头 + 茶叶蛋（50g）+ 拌黄瓜丝 + 牛奶250mL</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🍓</div>
+            <div class="meal-content">
+              <div class="meal-label-small">上午加餐</div>
+              <div class="meal-dishes">草莓200g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon lunch">🌞</div>
+            <div class="meal-content">
+              <div class="meal-label-small">午餐</div>
+              <div class="meal-dishes">黑豆饭 + 木耳炒肉片（猪瘦肉50g）+ 蒜蓉炒菜心（含枸杞*）+ 紫菜蛋花汤</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🥛</div>
+            <div class="meal-content">
+              <div class="meal-label-small">下午加餐</div>
+              <div class="meal-dishes">酸奶100g + 核桃5g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-content">
+              <div class="meal-label-small">晚餐</div>
+              <div class="meal-dishes">红薯饭 + 红烧鸡块（鸡肉80g，红青椒）+ 洋葱土豆片</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seasonal-tip">🍂 秋冬特色：酸菜猪肉炖粉条、小鸡炖蘑菇、虾仁蒸蛋、黏豆包；☀️夏季：鲤鱼炖豆腐、牛肉荞麦冷面</div>
+    </div>
+
+    <!-- 西北 -->
+    <div class="rcard">
+      <div class="rcard-header" style="background:var(--xibei);">
+        <div>
+          <div class="rname">🏔️ 西北地区</div>
+          <div class="rdesc">面食为主 · 牛羊乳品 · 大枣山药 · 夏清冬暖</div>
+        </div>
+      </div>
+      <div class="rcard-body">
+        <div style="font-size:12px;font-weight:600;color:var(--xibei);margin-bottom:10px;">🌱 春季代表食谱（~87g蛋白质）</div>
+        <div class="meal-timeline">
+          <div class="meal-row">
+            <div class="meal-icon breakfast">🌅</div>
+            <div class="meal-content">
+              <div class="meal-label-small">早餐</div>
+              <div class="meal-dishes">菜肉包（面粉50g）+ 红枣豆浆（黄豆20g，大枣*）+ 煮鸡蛋（50g）</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🍒</div>
+            <div class="meal-content">
+              <div class="meal-label-small">上午加餐</div>
+              <div class="meal-dishes">酸奶100g + 核桃5g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon lunch">🌞</div>
+            <div class="meal-content">
+              <div class="meal-label-small">午餐</div>
+              <div class="meal-dishes">炸酱面（面条80g，猪瘦肉20g）+ 莴笋炒牛肉（牛肉30g）+ 海带豆腐汤（含枸杞*、大枣*）</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🍓</div>
+            <div class="meal-content">
+              <div class="meal-label-small">下午加餐</div>
+              <div class="meal-dishes">草莓200g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-content">
+              <div class="meal-label-small">晚餐</div>
+              <div class="meal-dishes">紫米饭 + 大盘鸡（鸡肉60g，土豆，洋葱）+ 紫菜虾皮鸡蛋汤</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seasonal-tip">🌾 秋季特色：羊肉泡馍、韭菜鸡蛋馅饼；❄️冬季：清蒸鲈鱼配燕麦饭、羊肉面、孜然羊肉</div>
+    </div>
+
+    <!-- 华北 -->
+    <div class="rcard">
+      <div class="rcard-header" style="background:var(--huabei);">
+        <div>
+          <div class="rname">🏙️ 华北地区</div>
+          <div class="rdesc">面食当家 · 畜禽为主 · 茯苓枸杞 · 焖炒卤拌</div>
+        </div>
+      </div>
+      <div class="rcard-body">
+        <div style="font-size:12px;font-weight:600;color:var(--huabei);margin-bottom:10px;">🌱 春季代表食谱（~96g蛋白质）</div>
+        <div class="meal-timeline">
+          <div class="meal-row">
+            <div class="meal-icon breakfast">🌅</div>
+            <div class="meal-content">
+              <div class="meal-label-small">早餐</div>
+              <div class="meal-dishes">葱花鸡蛋饼（面粉30g，鸡蛋50g）+ 拌三丁（豆腐干、莴笋、胡萝卜）+ 红枣小米粥（含大枣*）</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🍒</div>
+            <div class="meal-content">
+              <div class="meal-label-small">上午加餐</div>
+              <div class="meal-dishes">樱桃200g + 酸奶100g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon lunch">🌞</div>
+            <div class="meal-content">
+              <div class="meal-label-small">午餐</div>
+              <div class="meal-dishes">糙米饭 + 红烧带鱼（80g，生姜*）+ 杏鲍菇炒油菜 + 紫菜蛋花汤（含枸杞*）</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🥛</div>
+            <div class="meal-content">
+              <div class="meal-label-small">下午加餐</div>
+              <div class="meal-dishes">牛奶250mL + 腰果5g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-content">
+              <div class="meal-label-small">晚餐</div>
+              <div class="meal-dishes">花卷（面粉70g）+ 芦笋牛柳（牛柳80g）+ 素炒空心菜 + 紫菜蛋花汤</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seasonal-tip">☀️ 夏季：沙葱炒鸡蛋、卤牛肉、凉拌豆腐丝；❄️ 冬季：豆腐焖鱼、牛肉烩菜、红烧鸡块</div>
+    </div>
+
+    <!-- 华东 -->
+    <div class="rcard">
+      <div class="rcard-header" style="background:var(--huadong);">
+        <div>
+          <div class="rname">🌊 华东地区</div>
+          <div class="rdesc">东方膳食 · 水产丰富 · 清淡鲜美 · 白灼汤羹</div>
+        </div>
+      </div>
+      <div class="rcard-body">
+        <div style="font-size:12px;font-weight:600;color:var(--huadong);margin-bottom:10px;">🌱 春季代表食谱（~99g蛋白质）</div>
+        <div class="meal-timeline">
+          <div class="meal-row">
+            <div class="meal-icon breakfast">🌅</div>
+            <div class="meal-content">
+              <div class="meal-label-small">早餐</div>
+              <div class="meal-dishes">香菇荠菜包（面粉30g，荠菜20g，香菇）+ 香干马兰头（香干30g）+ 牛奶250mL</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🍎</div>
+            <div class="meal-content">
+              <div class="meal-label-small">上午加餐</div>
+              <div class="meal-dishes">苹果200g + 煮鸡蛋1个</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon lunch">🌞</div>
+            <div class="meal-content">
+              <div class="meal-label-small">午餐</div>
+              <div class="meal-dishes">赤小豆饭（赤小豆*）+ 油面筋塞肉（猪瘦肉80g）+ 酒香草头</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🥛</div>
+            <div class="meal-content">
+              <div class="meal-label-small">下午加餐</div>
+              <div class="meal-dishes">酸奶100g + 山核桃5g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-content">
+              <div class="meal-label-small">晚餐</div>
+              <div class="meal-dishes">黑米饭 + 清炒虾仁（80g）+ 香菇炒芦笋 + 榨菜鸡蛋汤</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seasonal-tip">☀️ 夏季：小黄鱼、苦瓜蒸蛋、葱油拌面；🍂 秋冬：板栗烧鸡、腌笃鲜、清蒸鲈鱼、冬笋炒肉</div>
+    </div>
+
+    <!-- 华中 -->
+    <div class="rcard">
+      <div class="rcard-header" style="background:var(--huazhong);">
+        <div>
+          <div class="rname">🌶️ 华中地区</div>
+          <div class="rdesc">米面皆宜 · 淡水鱼鲜 · 偏辣爽口 · 莲藕飘香</div>
+        </div>
+      </div>
+      <div class="rcard-body">
+        <div style="font-size:12px;font-weight:600;color:var(--huazhong);margin-bottom:10px;">🌱 春季代表食谱（~92g蛋白质）</div>
+        <div class="meal-timeline">
+          <div class="meal-row">
+            <div class="meal-icon breakfast">🌅</div>
+            <div class="meal-content">
+              <div class="meal-label-small">早餐</div>
+              <div class="meal-dishes">韭菜鸡蛋水煎包（面粉50g，韭菜，鸡蛋）+ 山药小米粥（山药*40g，小米30g）+ 牛奶</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🥛</div>
+            <div class="meal-content">
+              <div class="meal-label-small">上午加餐</div>
+              <div class="meal-dishes">牛奶250mL + 葵花籽5g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon lunch">🌞</div>
+            <div class="meal-content">
+              <div class="meal-label-small">午餐</div>
+              <div class="meal-dishes">黑米饭 + 小炒牛肉（牛里脊70g，红椒）+ 蒜蓉油麦菜 + 黄瓜番茄汤</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🍎</div>
+            <div class="meal-content">
+              <div class="meal-label-small">下午加餐</div>
+              <div class="meal-dishes">苹果200g + 酸奶100g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-content">
+              <div class="meal-label-small">晚餐</div>
+              <div class="meal-dishes">绿豆饭 + 红烧武昌鱼（70g，生姜*）+ 西蓝花炒木耳胡萝卜 + 白菜豆腐汤（含枸杞*）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seasonal-tip">☀️ 夏季：荷叶蒸鸡、藕带炒肉、绿豆粥；❄️ 冬季：莲藕炖排骨、腊肉炒红菜薹、萝卜羊肉煲</div>
+    </div>
+
+    <!-- 西南 -->
+    <div class="rcard">
+      <div class="rcard-header" style="background:var(--xinan);">
+        <div>
+          <div class="rname">🐼 西南地区</div>
+          <div class="rdesc">米粉米线 · 辣麻酸鲜 · 酸菜魔芋 · 生姜百合</div>
+        </div>
+      </div>
+      <div class="rcard-body">
+        <div style="font-size:12px;font-weight:600;color:var(--xinan);margin-bottom:10px;">🌱 春季代表食谱（~91g蛋白质）</div>
+        <div class="meal-timeline">
+          <div class="meal-row">
+            <div class="meal-icon breakfast">🌅</div>
+            <div class="meal-content">
+              <div class="meal-label-small">早餐</div>
+              <div class="meal-dishes">豌杂面（面条50g，豌豆，青菜，猪瘦肉10g）+ 拌折耳根（鱼腥草*）+ 豆浆（黄豆20g）</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🫐</div>
+            <div class="meal-content">
+              <div class="meal-label-small">上午加餐</div>
+              <div class="meal-dishes">酸奶100g + 巴旦木10g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon lunch">🌞</div>
+            <div class="meal-content">
+              <div class="meal-label-small">午餐</div>
+              <div class="meal-dishes">土豆焖饭（大米，土豆，腊肠，香菇，玉米）+ 魔芋烧鸭（鸭肉90g，魔芋，生姜*）+ 蒜香马齿苋</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🫐</div>
+            <div class="meal-content">
+              <div class="meal-label-small">下午加餐</div>
+              <div class="meal-dishes">牛奶250mL + 蓝莓200g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-content">
+              <div class="meal-label-small">晚餐</div>
+              <div class="meal-dishes">二米饭（大米+小米）+ 辣子鸡（鸡肉90g，花椒*）+ 茴香炒蚕豆（茴香*）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seasonal-tip">☀️ 夏季：酸辣凉面、水煮鱼、冬瓜薏米汤；❄️ 冬季：酸汤牛肉、砂锅鸡、红薯糯米饭</div>
+    </div>
+
+    <!-- 华南 -->
+    <div class="rcard" style="grid-column: 1 / -1; max-width: 420px;">
+      <div class="rcard-header" style="background:var(--huanan);">
+        <div>
+          <div class="rname">🌴 华南地区</div>
+          <div class="rdesc">清蒸白灼 · 海鲜丰盛 · 靓汤飘香 · 芡实薏仁</div>
+        </div>
+      </div>
+      <div class="rcard-body">
+        <div style="font-size:12px;font-weight:600;color:var(--huanan);margin-bottom:10px;">🌱 春季代表食谱（~92g蛋白质）</div>
+        <div class="meal-timeline">
+          <div class="meal-row">
+            <div class="meal-icon breakfast">🌅</div>
+            <div class="meal-content">
+              <div class="meal-label-small">早餐</div>
+              <div class="meal-dishes">皮蛋瘦肉粥（大米60g，皮蛋40g，猪瘦肉20g）+ 白灼生菜 + 牛奶250mL</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🍒</div>
+            <div class="meal-content">
+              <div class="meal-label-small">上午加餐</div>
+              <div class="meal-dishes">樱桃200g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon lunch">🌞</div>
+            <div class="meal-content">
+              <div class="meal-label-small">午餐</div>
+              <div class="meal-dishes">干炒牛河（河粉100g，牛里脊80g，豆芽，生姜*）+ 蚝油芥兰（含枸杞*）</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon snack">🥛</div>
+            <div class="meal-content">
+              <div class="meal-label-small">下午加餐</div>
+              <div class="meal-dishes">酸奶100g + 开心果5g</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-content">
+              <div class="meal-label-small">晚餐</div>
+              <div class="meal-dishes">红薯饭 + 清蒸海鲈鱼（70g）+ 蒜蓉苋菜 + 枸杞叶猪肝汤（猪肝20g）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seasonal-tip">☀️ 夏季：海鲜粥、白灼虾、冬瓜苦瓜汤；❄️ 冬季：莲子百合汤、马蹄炖猪腱、老火靓汤</div>
+    </div>
+
+  </div><!-- /region-cards -->
+
+  <div class="card" style="margin-top:20px;background:var(--green-light);">
+    <h4 style="font-weight:700;margin-bottom:12px;">📌 灵活使用这些食谱</h4>
+    <ul style="font-size:14px;padding-left:16px;line-height:2;">
+      <li><strong>能量等级怎么选？</strong>60kg女性选1500～1800 kcal档；男性或体力较多者选1700～2000 kcal档</li>
+      <li><strong>食材可以替换吗？</strong>同类食材可互换，蛋白质含量相近即可。鲈鱼↔带鱼↔草鱼，猪瘦肉↔鸡胸肉，豆腐↔豆干</li>
+      <li><strong>不喜欢某个食药物质怎么办？</strong>标注 * 的食药物质（枸杞、山药、薏苡仁等）可省略或换普通同类食材</li>
+      <li><strong>能跨地区混搭吗？</strong>完全可以！早餐参考华南，午餐参考华东，晚餐参考东北——只要总蛋白质达标、三餐均匀即可</li>
+    </ul>
+  </div>
+</section>
+
+</div><!-- /container -->
+</div><!-- /main-content -->
+
+<footer>
+  <div class="container">
+    <p><strong>参考文献</strong></p>
+    <p style="margin-top:8px;">① 《成人肌少症食养指南（2026年版）》，中国国家卫生健康委员会</p>
+    <p>② 《肌少症膳食营养处方及运动干预中国专家共识（2025）》，营养学报，2025年第47卷第1期</p>
+    <p style="margin-top:12px;font-size:12px;opacity:0.6;">本手册仅供健康科普参考，不构成医疗建议。如有疾病请就医。</p>
+  </div>
+</footer>
+
+</body>
+</html>
