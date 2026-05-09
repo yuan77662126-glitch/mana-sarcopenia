@@ -506,14 +506,14 @@ body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
   line-break: strict;
 }
 
-/* ===== 食物表 leading-bullet 列表样式 ===== */
-.region-table .fitem {
+/* ===== Leading-bullet 列表项（食物表 / 锻炼部位 / 多项分隔通用） ===== */
+.fitem {
   display: block;
   position: relative;
   padding-left: 12px;
   line-height: 1.7;
 }
-.region-table .fitem::before {
+.fitem::before {
   content: "·";
   position: absolute;
   left: 2px;
@@ -521,8 +521,12 @@ body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
   color: var(--gray);
   font-weight: 700;
 }
-.region-table td {
-  vertical-align: top;
+.region-table td { vertical-align: top; }
+
+/* ===== 原子整体不可断行（数字+单位、括号、斜杠内联组合） ===== */
+.nowrap {
+  white-space: nowrap;
+  display: inline-block;
 }
 
 /* ===== MOBILE RESPONSIVE (≤480px 普通手机) ===== */
@@ -540,9 +544,9 @@ body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
 
   /* Section headers */
   .sec-header { gap: 10px; margin-bottom: 16px; }
-  .sec-header h2 { font-size: 18px; }
-  .sec-icon { font-size: 22px; }
-  .sec-num { width: 30px; height: 30px; font-size: 14px; }
+  .sec-header h2 { font-size: 21px; line-height: 1.3; }
+  .sec-icon { font-size: 24px; }
+  .sec-num { width: 34px; height: 34px; font-size: 16px; flex-shrink: 0; }
 
   /* Cards 默认单列堆叠 */
   .card-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -583,7 +587,8 @@ body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
   .container { padding: 0 10px; }
   .hero h1 { font-size: 25px; }
   .hero p { font-size: 12px; }
-  .sec-header h2 { font-size: 16px; }
+  .sec-header h2 { font-size: 19px; }
+  .sec-num { width: 30px; height: 30px; font-size: 14px; }
 
   .test-cards { grid-template-columns: 1fr; }
   .protein-targets { grid-template-columns: 1fr; }
@@ -806,10 +811,10 @@ body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
         <tr><td>🐔 鸡胸肉</td><td><span class="protein-badge">约23g</span></td><td>低脂高蛋白首选</td></tr>
         <tr><td>🐟 三文鱼/鲭鱼</td><td><span class="protein-badge">约20g</span></td><td>额外含n-3脂肪酸，抗炎护肌</td></tr>
         <tr><td>🦐 虾</td><td><span class="protein-badge">约18g</span></td><td>易消化，适合老年人</td></tr>
-        <tr><td>🥚 鸡蛋（2个）</td><td><span class="protein-badge">约26g</span></td><td>氨基酸最均衡的天然食物</td></tr>
-        <tr><td>🥛 低脂牛奶250ml</td><td><span class="protein-badge">约8g</span></td><td>含钙，睡前补充可持续供给</td></tr>
-        <tr><td>🫘 北豆腐100g</td><td><span class="protein-badge">约12g</span></td><td>植物蛋白优选，适合不爱吃肉者</td></tr>
-        <tr><td>🌊 海带/木耳/香菇</td><td>—</td><td>含多糖，益肠道、助免疫</td></tr>
+        <tr><td>🥚 <span class="nowrap">鸡蛋（2个）</span></td><td><span class="protein-badge">约26g</span></td><td>氨基酸最均衡的天然食物</td></tr>
+        <tr><td>🥛 低脂牛奶<span class="nowrap">250ml</span></td><td><span class="protein-badge">约8g</span></td><td>含钙，睡前补充可持续供给</td></tr>
+        <tr><td>🫘 北豆腐<span class="nowrap">100g</span></td><td><span class="protein-badge">约12g</span></td><td>植物蛋白优选，适合不爱吃肉者</td></tr>
+        <tr><td>🌊 <span class="fitem">海带</span><span class="fitem">木耳</span><span class="fitem">香菇</span></td><td>—</td><td>含多糖，益肠道、助免疫</td></tr>
       </tbody>
     </table>
     <div style="margin-top:12px;font-size:13px;color:var(--gray);">
@@ -985,11 +990,11 @@ body, p, td, th, h1, h2, h3, h4, h5, li, span, div, a {
     <table class="ex-table">
       <thead><tr><th>动作</th><th>主要锻炼部位</th><th>建议</th></tr></thead>
       <tbody>
-        <tr><td>深蹲（可扶椅背）</td><td>大腿、臀部</td><td>每组10～15次，共3组</td></tr>
-        <tr><td>靠墙静蹲</td><td>大腿前侧</td><td>每次30～60秒，共3组</td></tr>
-        <tr><td>俯卧撑（可跪姿）</td><td>胸、臂、核心</td><td>每组8～12次，共3组</td></tr>
-        <tr><td>弹力带划船</td><td>背部、手臂</td><td>每组10次，共3组</td></tr>
-        <tr><td>单腿站立</td><td>小腿、踝、平衡</td><td>每侧30秒，共3组</td></tr>
+        <tr><td>深蹲（可扶椅背）</td><td><span class="fitem">大腿</span><span class="fitem">臀部</span></td><td>每组<span class="nowrap">10～15次</span>，共3组</td></tr>
+        <tr><td>靠墙静蹲</td><td>大腿前侧</td><td>每次<span class="nowrap">30～60秒</span>，共3组</td></tr>
+        <tr><td>俯卧撑（可跪姿）</td><td><span class="fitem">胸</span><span class="fitem">臂</span><span class="fitem">核心</span></td><td>每组<span class="nowrap">8～12次</span>，共3组</td></tr>
+        <tr><td>弹力带划船</td><td><span class="fitem">背部</span><span class="fitem">手臂</span></td><td>每组10次，共3组</td></tr>
+        <tr><td>单腿站立</td><td><span class="fitem">小腿</span><span class="fitem">踝</span><span class="fitem">平衡</span></td><td>每侧30秒，共3组</td></tr>
         <tr><td>踮脚跟</td><td>小腿</td><td>每组20次，共3组</td></tr>
       </tbody>
     </table>
